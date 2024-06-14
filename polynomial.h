@@ -16,19 +16,16 @@ public:
     Polynomial(Polynomial &other);
     
     // Copy-Constructor (for array of coefficients (floats)).
-    Polynomial(float coefficients[]);
+    Polynomial(float coefficients[], int degree);
     
     // Copy-Constructor (for array of coefficients (integers)).
-    Polynomial(int coefficients[]);
+    Polynomial(int coefficients[], int degree);
 
     ~Polynomial();
 
     // Returns the degree of the polynom.
     int degree();
     
-    // Returns the max degree the of the polynom in which polynomring it was defined.
-    int size();
-
     // Prints Polynomial.
     void print();
 };

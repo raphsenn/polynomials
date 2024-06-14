@@ -11,44 +11,40 @@ Polynomial::Polynomial() {
 }
 
 Polynomial::Polynomial(Polynomial &other) {
-    size_ = other.size_;
-    coefficients_ = new float[size_];
+    coefficients_ = new float[other.degree_];
     degree_ = other.degree_;
 
-    for (int i = 0; i < other.size_; i++) {
+    for (int i = 0; i < other.degree_ + 1; i++) {
         coefficients_[i] = other.coefficients_[i];
     } 
 }
 
-Polynomial::Polynomial(float coefficients[]) {
-    size_ = sizeof(coefficients) / sizeof(float);
+Polynomial::Polynomial(float coefficients[], int degree) {
     coefficients_ = new float[size_];
-    
-    for (int i = 0; i < size_; i++) {
+    degree_ = degree;
+
+    for (int i = 0; i < degree_ + 1; i++) {
         coefficients_[i] = coefficients[i];
     } 
 }
 
-Polynomial::Polynomial(int coefficients[]) {
+Polynomial::Polynomial(int coefficients[], int degree) {
     // Integers and floats 4-Bytes.
-    size_ = sizeof(coefficients) / sizeof(int);
-    coefficients_ = new float[size_];
+    degree_ = degree; 
+    coefficients_ = new float[degree_];
 
-    for (int i = 0; i < size_; i++) {
+    for (int i = 0; i < degree_ + 1; i++) {
         coefficients_[i] = float(coefficients[i]);
     }
 }
 
 Polynomial::~Polynomial() { delete[] coefficients_; }
 
-
 int Polynomial::degree() { return degree_; }
 
-int Polynomial::size() { return size_; }
-
-
 void Polynomial::print() {
-    for (int i = 0; i < size_; i++) {
+    if (degree_ == INT_MAX) printf("0\n"); return;
+    for (int i = 0; i < degree_ + 1; i++) {
         printf("%f ", coefficients_[i]);
     }
     printf("\n");
