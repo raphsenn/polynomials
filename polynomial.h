@@ -4,7 +4,7 @@
 class Polynomial {
 
 private:
-    float* data_;
+    float* coefficients_;
     int size_;
     int degree_;
 
@@ -16,10 +16,10 @@ public:
     Polynomial(Polynomial &other);
     
     // Copy-Constructor (for array of coefficients (floats)).
-    Polynomial(float array[]);
+    Polynomial(float coefficients[]);
     
     // Copy-Constructor (for array of coefficients (integers)).
-    Polynomial(int array[]);
+    Polynomial(int coefficients[]);
 
     ~Polynomial();
 
