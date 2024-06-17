@@ -1,11 +1,12 @@
 
+#pragma once
 
+#include <vector>
 
 class Polynomial {
 
 private:
     float* coefficients_;
-    int size_;
     int degree_;
 
 public:
@@ -16,7 +17,8 @@ public:
     Polynomial(Polynomial &other);
     
     // Copy-Constructor (for array of coefficients (floats)).
-    Polynomial(float coefficients[], int degree);
+    // Polynomial(float coefficients[], int degree);
+    Polynomial(std::vector<float> coefficients);
     
     // Copy-Constructor (for array of coefficients (integers)).
     Polynomial(int coefficients[], int degree);

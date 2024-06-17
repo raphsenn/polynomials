@@ -3,17 +3,22 @@
 #include <stdio.h>
 
 int main() {
-    float arr[3] = {1, 2, 3};
+    // float arr[3] = {1, 2, 3};
+    std::vector<float> arr = {1.0, 2.0, 3.0};
+    
     Polynomial poly;
     poly.print();
 
-    Polynomial poly2(arr, 2);
+    Polynomial poly2(arr);
+    // Polynomial poly2(arr, 2);
     Polynomial poly3(poly2);
 
     poly2.print();
     poly3.print();
 
-    Polynomial poly4((float[]){5, 4, 3, 2, 1}, 4);
+    Polynomial poly4({5, 4, 3, 2, 1});
+    // Polynomial poly4((float[]){5, 4, 3, 2, 1}, 4);
+
     poly4.print();
     
     int* p;
